@@ -22,7 +22,7 @@ export const useGroups = () => {
       if (memberErr) throw memberErr
       if (!memberRows || memberRows.length === 0) return []
 
-      const groupIds = memberRows.map(row => row.group_id)
+      const groupIds = (memberRows as any[]).map((row: any) => row.group_id)
 
       // Query the actual groups details
       let query = supabase

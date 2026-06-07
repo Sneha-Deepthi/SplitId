@@ -46,7 +46,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   useEffect(() => {
     // Check active session
-    supabase.auth.getSession().then(({ data: { session: activeSession } }) => {
+    supabase.auth.getSession().then(({ data: { session: activeSession } }: any) => {
       setSession(activeSession)
       if (activeSession?.user) {
         fetchProfile(activeSession.user.id).finally(() => setLoading(false))
@@ -56,7 +56,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     })
 
     // Listen to auth state transitions
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, currentSession) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event: any, currentSession: any) => {
       setSession(currentSession)
       if (currentSession?.user) {
         setLoading(true)

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { supabase } from '../lib/supabase'
 import { useAuth } from './useAuth'
-import { Expense, ExpenseSplit } from '../types'
+import { Expense } from '../types'
 
 export const useExpenses = () => {
   const { user } = useAuth()
@@ -23,7 +23,7 @@ export const useExpenses = () => {
       if (expErr) throw expErr
 
       // 2. Fetch all splits for these expenses
-      const expenseIds = expensesData.map(e => e.id)
+      const expenseIds = (expensesData as any[]).map((e: any) => e.id)
       if (expenseIds.length === 0) return []
 
       const { data: splitsData, error: splitsErr } = await supabase
