@@ -33,10 +33,10 @@ Copy the contents of `supabase_schema.sql` and execute it in your **Supabase Pro
 In your Supabase console, go to **Storage**, create a new bucket named `receipts`, and check the **Public** option. (Alternatively, add select/insert policies for authenticated users).
 
 ### 3. Environment Variables
-The `.env` file is already configured with your live Supabase project credentials:
+Create a `.env` file in the project root and add your Supabase credentials:
 ```env
-VITE_SUPABASE_URL=https://cvkoupqtvquruhbfljdy.supabase.co
-VITE_SUPABASE_ANON_KEY=sb_publishable_hLmmcLcxa47KPa-_E7LkpQ_0fw_0dXS
+VITE_SUPABASE_URL=https://your-project.supabase.co
+VITE_SUPABASE_ANON_KEY=your-anon-key
 ```
 
 ### 4. Install & Run
