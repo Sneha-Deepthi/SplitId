@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Loader, Activity as ActivityIcon, RefreshCw, Layers } from 'lucide-react'
+import { Loader, Activity as ActivityIcon, RefreshCw } from 'lucide-react'
 import { useSettlements } from '../hooks/useSettlements'
 import { ActivityLog } from '../types'
 import { formatRelativeTime } from '../lib/utils'

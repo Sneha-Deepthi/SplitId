@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { User, Copy, Check, Save, Loader, AlertCircle } from 'lucide-react'
+import { Copy, Check, Save, Loader, AlertCircle } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 
 export const Profile: React.FC = () => {

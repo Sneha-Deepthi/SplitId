@@ -64,11 +64,11 @@ export const useSettlements = () => {
 
       // Log activity
       const formattedAmount = `${amount} ${currency}`
-      await supabase.from('activity_logs').insert({
+      await (supabase.from('activity_logs') as any).insert({
         group_id: groupId,
         actor_id: user.id,
         action_type: 'settle',
-        description: `${settleData.payer?.name || 'User'} settled ${formattedAmount} to ${settleData.payee?.name || 'User'}`
+        description: `${(settleData as any)?.payer?.name || 'User'} settled ${formattedAmount} to ${(settleData as any)?.payee?.name || 'User'}`
       })
 
       return true
@@ -102,7 +102,7 @@ export const useSettlements = () => {
 
       // Log activity
       const formattedAmount = `${amount} ${currency}`
-      await supabase.from('activity_logs').insert({
+      await (supabase.from('activity_logs') as any).insert({
         group_id: groupId,
         actor_id: user.id,
         action_type: 'delete_settlement',
@@ -141,7 +141,7 @@ export const useSettlements = () => {
         if (memberErr) throw memberErr
         if (!memberRows || memberRows.length === 0) return []
 
-        const groupIds = memberRows.map(row => row.group_id)
+        const groupIds = (memberRows as any[]).map(row => row.group_id)
         query = query.in('group_id', groupIds)
       }
 

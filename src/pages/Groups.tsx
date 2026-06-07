@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Plus, ChevronRight, Loader, Archive, Edit2, CheckCircle2, RotateCcw, AlertTriangle } from 'lucide-react'
+import { ChevronRight, Loader, Archive, Edit2, RotateCcw, AlertTriangle } from 'lucide-react'
 import { useGroups } from '../hooks/useGroups'
 import { Group } from '../types'
 

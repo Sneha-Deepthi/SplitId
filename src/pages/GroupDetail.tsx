@@ -2,15 +2,11 @@ import React, { useEffect, useState } from 'react'
 import {
   ArrowLeft,
   Plus,
-  Users,
-  Search,
   AlertCircle,
   FileText,
   Trash2,
   Edit,
-  DollarSign,
   Loader,
-  RefreshCw,
   Send,
   History
 } from 'lucide-react'
@@ -18,7 +14,7 @@ import { useAuth } from '../hooks/useAuth'
 import { useGroups } from '../hooks/useGroups'
 import { useExpenses } from '../hooks/useExpenses'
 import { useSettlements } from '../hooks/useSettlements'
-import { Group, Profile, Expense, Settlement, ActivityLog, DebtTransfer } from '../types'
+import { Group, Expense, Settlement, ActivityLog, DebtTransfer } from '../types'
 import { AddExpenseModal } from '../components/AddExpenseModal'
 import { SettleModal } from '../components/SettleModal'
 import { calculateBalances, formatCurrency, formatRelativeTime } from '../lib/utils'
@@ -453,8 +449,6 @@ export const GroupDetail: React.FC<GroupDetailProps> = ({ groupId, onNavigate })
 
             <div className="space-y-3 max-h-[160px] overflow-y-auto pr-1">
               {group?.members?.map(member => {
-                // Total user net balance across currencies inside this group
-                const activeBalances = Object.entries(userBalances).filter(([_, val]) => Math.abs(val) > 0.005)
                 const isCurrent = member.id === user?.id
 
                 // Calculate this specific member's balance in USD or other currencies
